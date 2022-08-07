@@ -1,4 +1,5 @@
 ﻿using CodeBase.CameraLogic;
+using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,16 +11,17 @@ namespace CodeBase.Infrastructure
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly LoadingScreen _loadingScreen;
+        private readonly IGameFactory _gameFactory;
 
-        private const string HUD_PATH = @"Hud/Hud";
-        private const string HERO_PATH = @"Hero/hero";
         private const string INITIAL_POINT_TAG = "InitialPoint";
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, Logic.LoadingScreen loadingScreen)
+
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _loadingScreen = loadingScreen;
+            _gameFactory = gameFactory;
         }
 
         public void Enter(string sceneName)
@@ -36,18 +38,16 @@ namespace CodeBase.Infrastructure
         {
             var initialPoint = GameObject.FindWithTag(INITIAL_POINT_TAG);
 
-            GameObject hero = Instantiate(HERO_PATH, initialPoint.transform.position);
-            Instantiate(HUD_PATH);
+            var hero = _gameFactory.CreateHero(initialPoint.transform.position);
+            _gameFactory.CreateHUD();
             CameraFollow(hero);
 
             _gameStateMachine.Enter<GameLoopState>();
         }
+
         private void CameraFollow(GameObject target) =>
             Camera.main.GetComponent<CameraFollow>().Follow(target);
 
-        private static GameObject Instantiate(string path, Vector3 at) =>
-            Object.Instantiate(Resources.Load<GameObject>(path), at, Quaternion.identity);
-        private static GameObject Instantiate(string path) =>
-           Object.Instantiate(Resources.Load<GameObject>(path));
+
     }
 }

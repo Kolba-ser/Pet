@@ -1,4 +1,6 @@
-﻿using CodeBase.Logic;
+﻿using CodeBase.Infrastructure.Factory;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Logic;
 using System;
 using System.Collections.Generic;
 
@@ -9,12 +11,12 @@ namespace CodeBase.Infrastructure
         private Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, Logic.LoadingScreen loadingScreen)
+        public GameStateMachine(SceneLoader sceneLoader, LoadingScreen loadingScreen, AllServices services)
         {
             _states = new Dictionary<Type, IExitableState>()
             {
-                [typeof(BootstarpState)] = new BootstarpState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen),
+                [typeof(BootstarpState)] = new BootstarpState(this, sceneLoader, AllServices.Container),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen, services.Single<IGameFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(this),
             };
         }
