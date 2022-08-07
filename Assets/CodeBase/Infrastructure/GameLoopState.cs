@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.Infrastructure
 {
@@ -13,7 +14,6 @@ namespace CodeBase.Infrastructure
 
         public void Enter()
         {
-
         }
 
         public void Exit()

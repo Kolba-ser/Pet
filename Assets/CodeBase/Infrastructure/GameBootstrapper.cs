@@ -8,13 +8,13 @@ namespace CodeBase.Infrastructure
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
 
-        [SerializeField] private LoadingScreen loadingScreen;
+        [SerializeField] private LoadingScreen loadingScreenPrefab;
 
         private Game _game;
 
         private void Awake()
         {
-            _game = new Game(this, loadingScreen);
+            _game = new Game(this, Instantiate(loadingScreenPrefab));
             _game._stateMachine.Enter<BootstarpState>();
 
             DontDestroyOnLoad(this);
