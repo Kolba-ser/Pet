@@ -11,8 +11,12 @@ namespace CodeBase.Infrastructure.Factory
 
         private readonly IAssets _assets;
 
+        public event Action HeroCreated;
+
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
+
+        public GameObject Hero { get; private set; }
 
         public GameFactory(IAssets assets)
         {
@@ -28,8 +32,12 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateHUD() => 
             InstantiateRegistered(AssetPath.HUD_PATH);
 
-        public GameObject CreateHero(Vector3 at) =>
-            InstantiateRegistered(AssetPath.HERO_PATH, at);
+        public GameObject CreateHero(Vector3 at)
+        {
+            Hero = InstantiateRegistered(AssetPath.HERO_PATH, at);
+            HeroCreated?.Invoke();
+            return Hero;
+        }
 
         private void RegisterProgressWatchers(GameObject gameObject)
         {

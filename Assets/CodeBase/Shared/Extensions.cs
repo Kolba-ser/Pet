@@ -1,5 +1,6 @@
 ﻿
 using CodeBase.Data;
+using System;
 using UnityEngine;
 
 public static class Extensions
@@ -21,6 +22,12 @@ public static class Extensions
     {
         v3.y += offsetY;
         return v3;
+    }
+
+    public static void IfNotNull<T>(this T component, Action<T> action) where T : Component
+    {
+        if (component)
+            action?.Invoke(component);
     }
 }
 
