@@ -1,4 +1,6 @@
-﻿using CodeBase.CameraLogic;
+﻿using Assets.CodeBase.UI;
+using CodeBase.CameraLogic;
+using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
@@ -59,8 +61,15 @@ namespace CodeBase.Infrastructure
         {
             var initialPoint = GameObject.FindWithTag(INITIAL_POINT_TAG);
             var hero = _gameFactory.CreateHero(initialPoint.transform.position);
-            _gameFactory.CreateHUD();
+            InitHud(hero);
             CameraFollow(hero);
+        }
+
+        private void InitHud(GameObject hero)
+        {
+            GameObject hud = _gameFactory.CreateHUD();
+
+            hud.GetComponentInChildren<ActorUI>().Construct(hero.GetComponent<HeroHealth>());
         }
 
         private void CameraFollow(GameObject target) =>

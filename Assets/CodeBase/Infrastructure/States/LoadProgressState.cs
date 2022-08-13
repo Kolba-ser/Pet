@@ -2,6 +2,7 @@
 using CodeBase.Infrastructure.SaveLoad;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using System;
+using UnityEngine;
 
 namespace CodeBase.Infrastructure
 {
@@ -35,7 +36,16 @@ namespace CodeBase.Infrastructure
             _saveLoadService.LoadProgress() 
             ?? NewProgress();
 
-        private static PlayerProgress NewProgress() =>
-            new PlayerProgress(initialLevel: "Main");
+        private static PlayerProgress NewProgress()
+        {
+            PlayerProgress playerProgress = new PlayerProgress(initialLevel: "Main");
+
+            playerProgress.HeroState.MaxHealth = 50;
+            playerProgress.HeroState.ResetHealth();
+            playerProgress.HeroStats.Damage = 1;
+            playerProgress.HeroStats.Radius = 0.5f;
+
+            return playerProgress;
+        }
     }
 }

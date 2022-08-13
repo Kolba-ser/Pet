@@ -1316,11 +1316,14 @@ GameObject:
   m_Component:
   - component: {fileID: 415700}
   - component: {fileID: 9588594}
-  - component: {fileID: 1941000699}
   - component: {fileID: 1478028899399592097}
-  - component: {fileID: 6465625055151510995}
-  - component: {fileID: 5527048826167000656}
   - component: {fileID: 6491930839433378565}
+  - component: {fileID: 6465625055151510995}
+  - component: {fileID: 1941000699}
+  - component: {fileID: 5527048826167000656}
+  - component: {fileID: 4487914257617102124}
+  - component: {fileID: 9032523502361538217}
+  - component: {fileID: 3426088255825556316}
   m_Layer: 12
   m_Name: hero
   m_TagString: Player
@@ -1368,20 +1371,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1941000699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b4024fa63c4039b3ed513573f9f84e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 9588594}
-  CharacterController: {fileID: 6465625055151510995}
 --- !u!54 &1478028899399592097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1398,6 +1387,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &6491930839433378565
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!143 &6465625055151510995
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1416,6 +1418,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.18, z: 0}
+--- !u!114 &1941000699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b4024fa63c4039b3ed513573f9f84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 9588594}
+  CharacterController: {fileID: 6465625055151510995}
 --- !u!114 &5527048826167000656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,19 +1445,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 4
---- !u!65 &6491930839433378565
-BoxCollider:
+--- !u!114 &4487914257617102124
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b72cb568f1e364e8d9d5c6dec8732f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroAnimator: {fileID: 1941000699}
+--- !u!114 &9032523502361538217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aeafb7457dc4b84d80b694cb5c03983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 4487914257617102124}
+  _heroMove: {fileID: 5527048826167000656}
+  _heroAttack: {fileID: 3426088255825556316}
+  _heroAnimator: {fileID: 1941000699}
+  _deathFx: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+--- !u!114 &3426088255825556316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde6c018434d4a94dbec784526c42e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroAnimator: {fileID: 1941000699}
+  _characterController: {fileID: 6465625055151510995}
 --- !u!1 &178646
 GameObject:
   m_ObjectHideFlags: 0

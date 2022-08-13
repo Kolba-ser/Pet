@@ -1,4 +1,5 @@
-﻿using CodeBase.Infrastructure.Factory;
+﻿using CodeBase.Hero;
+using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services;
 using System;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CodeBase.Enemy
         [SerializeField] private float _attackCooldown = 3f;
         [SerializeField] private float _cleavege = 0.5f;
         [SerializeField] private float _effectiveDistance;
+        [SerializeField] private float damage = 10;
 
         private IGameFactory _gameFactory;
 
@@ -53,6 +55,7 @@ namespace CodeBase.Enemy
             if (Hit(out Collider hit))
             {
                 PhysicsDebug.DrawRay(hit.transform.position, _cleavege, 2);
+                hit.transform.GetComponent<IHealth>().TakeDamage(damage);
             }
         }
 
