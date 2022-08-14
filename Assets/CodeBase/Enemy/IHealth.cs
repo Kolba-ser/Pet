@@ -4,8 +4,8 @@ namespace CodeBase.Enemy
 {
     public interface IHealth
     {
-        public float Current { get; }
-        public float Max { get; }
+        public float Current { get; set;}
+        public float Max { get; set; }
 
         public event Action OnHealthChange;
 

@@ -16,16 +16,6 @@ namespace Assets.CodeBase.UI
                 _health.OnHealthChange -= UpdateHpBar;
         }
 
-        private void Start()
-        {
-            if (_health == null)
-            {
-                _health = GetComponent<IHealth>();
-                _health.OnHealthChange += UpdateHpBar;
-            }
-
-        }
-
         public void Construct(IHealth health)
         {
             this._health = health;

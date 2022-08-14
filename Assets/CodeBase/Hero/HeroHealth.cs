@@ -18,7 +18,7 @@ namespace CodeBase.Hero
         public float Current
         {
             get => _heroState.CurrentHealth;
-            private set
+           set
             {
                 OnHealthChange?.Invoke();
                 _heroState.CurrentHealth = value;
@@ -28,7 +28,7 @@ namespace CodeBase.Hero
         public float Max
         {
             get => _heroState.MaxHealth;
-            private set => _heroState.MaxHealth = value;
+            set => _heroState.MaxHealth = value;
         }
 
         public void LoadProgress(PlayerProgress progress)

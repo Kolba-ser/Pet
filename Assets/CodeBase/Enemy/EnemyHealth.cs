@@ -5,8 +5,8 @@ namespace CodeBase.Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealth
     {
-        [field: SerializeField] public float Current { get; private set; }
-        [field: SerializeField] public float Max { get; private set; }
+        [field: SerializeField] public float Current { get; set; }
+        [field: SerializeField] public float Max { get; set; }
 
         [SerializeField] private EnemyAnimator enemyAnimator;
 

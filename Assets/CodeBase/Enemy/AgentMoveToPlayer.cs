@@ -11,38 +11,26 @@ namespace CodeBase.Enemy
         [SerializeField] private NavMeshAgent _agent;
         
         private Transform _heroTransform;
-        private IGameFactory _gameFactory;
 
-        private const float MINIMAL_DISTANCE = 1f;
+        private float _minimalDistance;
 
-        private void Start()
+        public void Construct(Transform hero, float minMoveDistance)
         {
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
-
-            if (_gameFactory.Hero)
-                InitializeHero();
-            else
-                _gameFactory.HeroCreated += HeroCreated;
-
+            _heroTransform = hero;
+            _minimalDistance = minMoveDistance;
         }
-
 
         private void Update()
         {
-            if (Initialized() && HeroNotReached())
+            if (Initialized() && HeroReached())
                 _agent.destination = _heroTransform.position;
         }
 
         private bool Initialized() => 
             _heroTransform != null;
 
-        private void HeroCreated() => 
-            InitializeHero();
+        private bool HeroReached() => 
+            (_agent.transform.position - _heroTransform.position).sqrMagnitude >= _minimalDistance * _minimalDistance;
 
-        private void InitializeHero() => 
-            _heroTransform = _gameFactory.Hero.transform;
-
-        private bool HeroNotReached() => 
-            (_agent.transform.position - _heroTransform.position).sqrMagnitude >= MINIMAL_DISTANCE * MINIMAL_DISTANCE;
     }
 }

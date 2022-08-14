@@ -6,7 +6,6 @@ using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace CodeBase.Infrastructure
 {
@@ -18,7 +17,7 @@ namespace CodeBase.Infrastructure
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgress;
         private const string INITIAL_POINT_TAG = "InitialPoint";
-
+        private const string ENEMY_SPAWNER_TAG = "EnemySpawner";
 
         public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IPersistentProgressService persistentProgress)
         {
@@ -35,7 +34,8 @@ namespace CodeBase.Infrastructure
             _gameFactory.CleanUp();
             _loadingScreen.Show();
         }
-        public void Exit() 
+
+        public void Exit()
         {
             _loadingScreen.Hide();
         }
@@ -44,7 +44,6 @@ namespace CodeBase.Infrastructure
         {
             InitGameWorld();
             InformProgressReaders();
-
 
             _gameStateMachine.Enter<GameLoopState>();
         }
@@ -59,10 +58,20 @@ namespace CodeBase.Infrastructure
 
         private void InitGameWorld()
         {
+            InitSpawners();
+
             var initialPoint = GameObject.FindWithTag(INITIAL_POINT_TAG);
             var hero = _gameFactory.CreateHero(initialPoint.transform.position);
             InitHud(hero);
             CameraFollow(hero);
+        }
+
+        private void InitSpawners()
+        {
+            foreach (GameObject spawnerObject in GameObject.FindGameObjectsWithTag(ENEMY_SPAWNER_TAG))
+            {
+                _gameFactory.Register(spawnerObject.GetComponent<EnemySpawner>());
+            }
         }
 
         private void InitHud(GameObject hero)
@@ -74,7 +83,5 @@ namespace CodeBase.Infrastructure
 
         private void CameraFollow(GameObject target) =>
             Camera.main.GetComponent<CameraFollow>().Follow(target);
-
-
     }
 }

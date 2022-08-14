@@ -12,28 +12,16 @@ namespace CodeBase.Enemy
         [SerializeField] private float _speed;
 
         private Transform _heroTransform;
-        private IGameFactory _gameFactory;
 
         private Vector3 _positionToLook;
 
-        private void Start()
-        {
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
-
-            if (_gameFactory.Hero)
-                InitializeHero();
-            else
-                _gameFactory.HeroCreated += HeroCreated;
-        }
+        public void Construct(Transform hero) => 
+            _heroTransform = hero.transform;
+        
 
         private bool Initialized() =>
             _heroTransform != null;
 
-        private void HeroCreated() =>
-            InitializeHero();
-
-        private void InitializeHero() =>
-            _heroTransform = _gameFactory.Hero.transform;
 
         private void Update()
         {

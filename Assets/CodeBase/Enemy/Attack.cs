@@ -1,8 +1,4 @@
-﻿using CodeBase.Hero;
-using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
-using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 namespace CodeBase.Enemy
@@ -14,10 +10,7 @@ namespace CodeBase.Enemy
         [SerializeField] private float _attackCooldown = 3f;
         [SerializeField] private float _cleavege = 0.5f;
         [SerializeField] private float _effectiveDistance;
-        [SerializeField] private float damage = 10;
-
-        private IGameFactory _gameFactory;
-
+        [SerializeField] private float _damage = 10;
 
         private Transform _heroTransform;
         private float currentAttackCooldown;
@@ -28,12 +21,17 @@ namespace CodeBase.Enemy
         private Collider[] _hits = new Collider[1];
         private bool _attackIsActive;
 
+        public void Construct(Transform hero, float damage, float cleavage, float effectiveDistance)
+        {
+            _heroTransform = hero.transform;
+            _damage = damage;
+            _effectiveDistance = effectiveDistance;
+            _cleavege = cleavage;
+        }
+        
         private void Awake()
         {
             _layerMask = 1 << LayerMask.NameToLayer("Player");
-
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
-            _gameFactory.HeroCreated += OnHeroCreated;
         }
 
         private void Update()
@@ -55,7 +53,7 @@ namespace CodeBase.Enemy
             if (Hit(out Collider hit))
             {
                 PhysicsDebug.DrawRay(hit.transform.position, _cleavege, 2);
-                hit.transform.GetComponent<IHealth>().TakeDamage(damage);
+                hit.transform.GetComponent<IHealth>().TakeDamage(_damage);
             }
         }
 
@@ -72,14 +70,12 @@ namespace CodeBase.Enemy
             _isAttacked = true;
         }
 
+
         private bool CanAttack() =>
            _attackIsActive && !_isAttacked && CooldownIsUp();
 
         private bool CooldownIsUp() =>
             currentAttackCooldown <= 0;
-
-        private void OnHeroCreated() =>
-            _heroTransform = _gameFactory.Hero.transform;
 
         private void UpdateCooldown()
         {
