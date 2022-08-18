@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 5261016488348296696, guid: fef8ee76ba818f84b81b11da6bda5ddf, type: 3}
   TypeId: 1
+  MaxLootValue: 10
+  MinLootValue: 20
   Hp: 27
   Damage: 12.7
   EffectiveDistance: 0.688

@@ -43,6 +43,7 @@ Transform:
   - {fileID: 4253956101306424977}
   - {fileID: 5964378849549154706}
   - {fileID: 4599349227048310992}
+  - {fileID: 1316414023847153509}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -62,49 +63,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''Head'' has been deleted
-
-    Transform ''Hand_L''
-    has been deleted
-
-    Transform ''Lower_Arm_L'' has been deleted
-
-    Transform
-    ''Upper_Arm_L'' has been deleted
-
-    Transform ''Hand_R'' has been deleted
-
-    Transform
-    ''Rower_Arm_R'' has been deleted
-
-    Transform ''Upper_Arm_R'' has been deleted
-
-    Transform
-    ''Spine'' has been deleted
-
-    Transform ''Toes_L'' has been deleted
-
-    Transform
-    ''Foot_L'' has been deleted
-
-    Transform ''Lower_Leg_L'' has been deleted
-
-    Transform
-    ''Upper_Leg_L'' has been deleted
-
-    Transform ''Toes_R'' has been deleted
-
-    Transform
-    ''Foot_R'' has been deleted
-
-    Transform ''Rower_Reg_R'' has been deleted
-
-    Transform
-    ''Upper_Reg_R'' has been deleted
-
-    Transform ''Hips'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -431,6 +390,51 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4679550049954487138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316414023847153509}
+  - component: {fileID: 3762326265469420513}
+  m_Layer: 0
+  m_Name: LootSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1316414023847153509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679550049954487138}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.022719622, y: 1.319714, z: 0.36969602}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4665124114459090}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3762326265469420513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679550049954487138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29589b3bb11c39a45a99eaa5e8d44e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeath: {fileID: 6126346938968896961}
 --- !u!1 &5558551596616377847
 GameObject:
   m_ObjectHideFlags: 0

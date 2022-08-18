@@ -1,7 +1,7 @@
-﻿using CodeBase.Infrastructure.Services;
+﻿using CodeBase.Enemy;
+using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.StaticData;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,8 +16,9 @@ namespace CodeBase.Infrastructure.Factory
         public void CleanUp();
         public GameObject CreateHero(Vector3 at);
         public GameObject CreateHUD();
-        void Register(ISavedProgressReader progressReader);
+        public LootPiece CreateLoot();
+        public void Register(ISavedProgressReader progressReader);
 
-        GameObject CreateMonster(MonsterTypeId typeId, Transform parent);
+        public GameObject CreateMonster(MonsterTypeId typeId, Transform parent);
     }
 }
