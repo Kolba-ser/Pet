@@ -4908,6 +4908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 5528328590532432570, guid: 169244c63e5156e43bfa69e692ccb4c5,
+        type: 3}
+      propertyPath: MonsterTypeId
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 169244c63e5156e43bfa69e692ccb4c5, type: 3}
 --- !u!4 &1576141818 stripped

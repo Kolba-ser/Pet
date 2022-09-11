@@ -2,6 +2,7 @@
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Services.Randomizer;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CodeBase.Enemy
@@ -26,12 +27,12 @@ namespace CodeBase.Enemy
 
         private void Start()
         {
-            enemyDeath.OnDeath += SpawnLoot;
+            enemyDeath.OnDeath += SpawnLootAsync;
         }
 
-        private void SpawnLoot()
+        private async void SpawnLootAsync()
         {
-            LootPiece loot = _factory.CreateLoot();
+            LootPiece loot = await _factory.CreateLoot();
             loot.transform.position = transform.position;
 
             Loot lootItem = GenerateLoot();

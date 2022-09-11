@@ -8,7 +8,7 @@ namespace CodeBase.StaticData
     public class MonsterStaticData : ScriptableObject
     {
         [FormerlySerializedAs("Prefab")]
-        public AssetReference Prefab;
+        public AssetReferenceGameObject PrefabReference;
         [Space(20)]
         public MonsterTypeId TypeId;
 

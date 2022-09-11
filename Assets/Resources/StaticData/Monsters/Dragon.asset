@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13365d6e5aa216c459afccfa74255ac0, type: 3}
-  m_Name: Golem
+  m_Name: Dragon
   m_EditorClassIdentifier: 
   PrefabReference:
-    m_AssetGUID: fef8ee76ba818f84b81b11da6bda5ddf
+    m_AssetGUID: c09d884e7ca40460f91e5b20675d3e94
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  TypeId: 1
-  MaxLootValue: 10
-  MinLootValue: 20
+  TypeId: 2
+  MaxLootValue: 500
+  MinLootValue: 200
   Hp: 27
   Damage: 12.7
   EffectiveDistance: 0.688

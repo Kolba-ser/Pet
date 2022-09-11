@@ -48,7 +48,7 @@ namespace CodeBase.Infrastructure
         private void RegisterServices()
         {
             RegisterStaticData();
-            _allServices.RegisterSingle<IAssets>(new AssetProvider());
+            RegisterAssetProvider();
             _allServices.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _allServices.RegisterSingle<IGameStateMachine>(_gameStateMachine);
 
@@ -75,6 +75,13 @@ namespace CodeBase.Infrastructure
                 _allServices.Single<IPersistentProgressService>()));
 
 
+        }
+
+        private void RegisterAssetProvider()
+        {
+            AssetProvider assetProvider = new AssetProvider();
+            _allServices.RegisterSingle<IAssets>(assetProvider);
+            assetProvider.Initialize();
         }
 
         private void RegisterStaticData()

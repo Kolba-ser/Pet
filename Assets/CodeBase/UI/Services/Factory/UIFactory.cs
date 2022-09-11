@@ -2,6 +2,7 @@
 using CodeBase.Infrastructure.AssetManagment;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.StaticData;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CodeBase.UI.Services.Factory
@@ -27,7 +28,11 @@ namespace CodeBase.UI.Services.Factory
             window.Construct(_persistentProgress);
         }
 
-        public Transform CreateUIRoot() => 
-            _rootCanvas = _assetProvider.Instantiate(AssetPath.ROOT_CANVAS_PATH).transform;
+        public async Task CreateUIRootAsync()
+        {
+
+            GameObject root = await _assetProvider.Instantiate(AssetAddress.ROOT_CANVAS_PATH);
+            _rootCanvas = root.transform;
+        }
     }
 }

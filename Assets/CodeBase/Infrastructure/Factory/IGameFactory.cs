@@ -3,6 +3,7 @@ using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.StaticData;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
@@ -21,14 +22,15 @@ namespace CodeBase.Infrastructure.Factory
 
         public void CleanUp();
 
-        public GameObject CreateHero(Vector3 at);
+        public Task<GameObject> CreateHeroAsync(Vector3 at);
 
-        public GameObject CreateHUD();
+        public Task<GameObject> CreateHUDAsync();
 
-        public LootPiece CreateLoot();
+        public Task<LootPiece> CreateLoot();
 
-        public GameObject CreateMonster(MonsterTypeId typeId, Transform parent);
+        public Task<GameObject> CreateMonster(MonsterTypeId typeId, Transform parent);
 
-        public void CreateSpawner(Vector3 position, string spawnerId, MonsterTypeId monsterTypeId);
+        public Task CreateSpawner(Vector3 position, string spawnerId, MonsterTypeId monsterTypeId);
+        Task WarmUp();
     }
 }

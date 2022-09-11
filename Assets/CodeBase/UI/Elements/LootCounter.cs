@@ -11,15 +11,11 @@ namespace Assets.CodeBase.UI
        
         private WorldData _worldData;
 
-        private void Start()
-        {
-            UpdateCounter();
-        }
-
         public void Construct(WorldData worldData)
         {
             _worldData = worldData;
             _worldData.LootData.OnLootValueChanged += UpdateCounter;
+            UpdateCounter();
         }
 
         private void UpdateCounter()

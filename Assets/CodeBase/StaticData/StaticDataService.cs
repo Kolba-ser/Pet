@@ -16,13 +16,13 @@ namespace CodeBase.StaticData
         public void Load()
         {
             _monstres = 
-                Resources.LoadAll<MonsterStaticData>(AssetPath.STATIC_DATA_MONSTERS_PATH)
+                Resources.LoadAll<MonsterStaticData>(AssetAddress.STATIC_DATA_MONSTERS_PATH)
                          .ToDictionary(x => x.TypeId, x => x);
             _levels = 
-                Resources.LoadAll<LevelStaticData>(AssetPath.STATIC_DATA_LEVELS_PATH)
+                Resources.LoadAll<LevelStaticData>(AssetAddress.STATIC_DATA_LEVELS_PATH)
                          .ToDictionary(x => x.LevelKey, x => x);
             _windowsConfigs = 
-                Resources.Load<WindowStaticData>(AssetPath.STATIC_DATA_WINDOWS_PATH)
+                Resources.Load<WindowStaticData>(AssetAddress.STATIC_DATA_WINDOWS_PATH)
                          .Configs
                          .ToDictionary(x => x.WindowId, x => x);
         }

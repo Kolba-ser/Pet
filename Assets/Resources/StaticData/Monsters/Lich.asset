@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13365d6e5aa216c459afccfa74255ac0, type: 3}
   m_Name: Lich
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 5385340862474774009, guid: d69fe0170a34a924b9b0756d21c78dab, type: 3}
+  PrefabReference:
+    m_AssetGUID: d69fe0170a34a924b9b0756d21c78dab
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   TypeId: 0
   MaxLootValue: 1
   MinLootValue: 7

@@ -36,9 +36,9 @@ namespace CodeBase.Logic.EnemySpawners
                 progress.KilledData.ClearedSpawner.Add(_id);
         }
 
-        private void Spawn()
+        private async void Spawn()
         {
-            GameObject monster = _gameFactory.CreateMonster(_typeId, transform);
+            GameObject monster = await _gameFactory.CreateMonster(_typeId, transform);
             _enemyDeath = monster.GetComponent<EnemyDeath>();
             _enemyDeath.OnDeath += Slay;
         }
