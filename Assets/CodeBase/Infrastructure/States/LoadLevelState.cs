@@ -4,8 +4,11 @@ using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
+using CodeBase.StaticData;
+using CodeBase.UI.Services;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.Infrastructure
 {
@@ -16,20 +19,24 @@ namespace CodeBase.Infrastructure
         private readonly LoadingScreen _loadingScreen;
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _persistentProgress;
+        private readonly IStaticDataService _staticData;
+        private readonly IUIFactory _uiFactory;
         private const string INITIAL_POINT_TAG = "InitialPoint";
-        private const string ENEMY_SPAWNER_TAG = "EnemySpawner";
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IPersistentProgressService persistentProgress)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IPersistentProgressService persistentProgress, IStaticDataService staticData, IUIFactory uiFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _loadingScreen = loadingScreen;
             _gameFactory = gameFactory;
             _persistentProgress = persistentProgress;
+            _staticData = staticData;
+            _uiFactory = uiFactory;
         }
 
         public void Enter(string sceneName)
         {
+            
             _sceneLoader.Load(sceneName, OnLoaded);
             _gameFactory.CleanUp();
             _loadingScreen.Show();
@@ -42,11 +49,15 @@ namespace CodeBase.Infrastructure
 
         private void OnLoaded()
         {
+            InitUIRoot();
             InitGameWorld();
             InformProgressReaders();
 
             _gameStateMachine.Enter<GameLoopState>();
         }
+
+        private void InitUIRoot() => 
+            _uiFactory.CreateUIRoot();
 
         private void InformProgressReaders()
         {
@@ -68,9 +79,11 @@ namespace CodeBase.Infrastructure
 
         private void InitSpawners()
         {
-            foreach (GameObject spawnerObject in GameObject.FindGameObjectsWithTag(ENEMY_SPAWNER_TAG))
+            string sceneKey = SceneManager.GetActiveScene().name;
+            LevelStaticData levelData = _staticData.ForLevel(sceneKey);
+            foreach (EnemySpawnerData spawnerData in levelData.EnemySpawners)
             {
-                _gameFactory.Register(spawnerObject.GetComponent<EnemySpawner>());
+                _gameFactory.CreateSpawner(spawnerData.Position, spawnerData.Id, spawnerData.MonsterTypeId);
             }
         }
 
