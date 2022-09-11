@@ -21,7 +21,6 @@ namespace CodeBase.Infrastructure
         private readonly IPersistentProgressService _persistentProgress;
         private readonly IStaticDataService _staticData;
         private readonly IUIFactory _uiFactory;
-        private const string INITIAL_POINT_TAG = "InitialPoint";
 
         public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IPersistentProgressService persistentProgress, IStaticDataService staticData, IUIFactory uiFactory)
         {
@@ -69,25 +68,36 @@ namespace CodeBase.Infrastructure
 
         private void InitGameWorld()
         {
-            InitSpawners();
+            LevelStaticData levelData = LevelStaticData();
 
-            var initialPoint = GameObject.FindWithTag(INITIAL_POINT_TAG);
-            var hero = _gameFactory.CreateHero(initialPoint.transform.position);
-            InitHud(hero);
+            InitSpawners(levelData);
+            GameObject hero = InitHero(levelData);
+            InitHud(hero, levelData);
             CameraFollow(hero);
         }
 
-        private void InitSpawners()
+        private LevelStaticData LevelStaticData()
         {
             string sceneKey = SceneManager.GetActiveScene().name;
             LevelStaticData levelData = _staticData.ForLevel(sceneKey);
+            return levelData;
+        }
+
+        private GameObject InitHero(LevelStaticData levelData)
+        {
+            return _gameFactory.CreateHero(levelData.InitialHeroPosition);
+        }
+
+        private void InitSpawners(LevelStaticData levelData)
+        {
+
             foreach (EnemySpawnerData spawnerData in levelData.EnemySpawners)
             {
                 _gameFactory.CreateSpawner(spawnerData.Position, spawnerData.Id, spawnerData.MonsterTypeId);
             }
         }
 
-        private void InitHud(GameObject hero)
+        private void InitHud(GameObject hero, LevelStaticData levelData)
         {
             GameObject hud = _gameFactory.CreateHUD();
 

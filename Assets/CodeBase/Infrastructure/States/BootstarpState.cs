@@ -50,6 +50,7 @@ namespace CodeBase.Infrastructure
             RegisterStaticData();
             _allServices.RegisterSingle<IAssets>(new AssetProvider());
             _allServices.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _allServices.RegisterSingle<IGameStateMachine>(_gameStateMachine);
 
 
             _allServices.RegisterSingle<IUIFactory>(new UIFactory(

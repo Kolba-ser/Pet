@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Serialization;
 
 namespace CodeBase.StaticData
@@ -7,7 +8,7 @@ namespace CodeBase.StaticData
     public class MonsterStaticData : ScriptableObject
     {
         [FormerlySerializedAs("Prefab")]
-        public GameObject Prefab;
+        public AssetReference Prefab;
         [Space(20)]
         public MonsterTypeId TypeId;
 
