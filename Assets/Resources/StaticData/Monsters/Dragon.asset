@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13365d6e5aa216c459afccfa74255ac0, type: 3}
+  m_Script: {fileID: 11500000, guid: 00a7bb1e29db53643a19b3b654b335f5, type: 3}
   m_Name: Dragon
   m_EditorClassIdentifier: 
   PrefabReference:
-    m_AssetGUID: c09d884e7ca40460f91e5b20675d3e94
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  TypeId: 2
-  MaxLootValue: 500
-  MinLootValue: 200
-  Hp: 27
-  Damage: 12.7
-  EffectiveDistance: 0.688
-  Cleavage: 0.822
-  MoveSpeed: 1
-  MinimalMoveDistance: 2.03
+  TypeId: 0
+  MaxLootValue: 0
+  MinLootValue: 0
+  Hp: 0
+  Damage: 0
+  EffectiveDistance: 0
+  Cleavage: 0
+  MoveSpeed: 0
+  MinimalMoveDistance: 0

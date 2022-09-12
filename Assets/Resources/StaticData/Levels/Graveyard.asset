@@ -9,24 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cd1ed3d1aaa1e43b8a8924524a2eac, type: 3}
+  m_Script: {fileID: 11500000, guid: d85fc8d1932b5cd4aa8b55e5614fd118, type: 3}
   m_Name: Graveyard
   m_EditorClassIdentifier: 
-  LevelKey: Main
+  LevelKey: Dungeon
   EnemySpawners:
   - Id: Main_a30f0762-640f-493b-91f4-c005b8492949
-    MonsterTypeId: 0
-    Position: {x: -6.726, y: 0.62, z: -2.003}
-  - Id: Main_b4d0728a-b63d-4c40-a925-13bf07c7a6cc
-    MonsterTypeId: 0
-    Position: {x: -7.46, y: 0.62, z: -16.37}
-  - Id: Main_9c3b215b-209c-4933-93c5-a50d8fc41499
-    MonsterTypeId: 1
-    Position: {x: 8.21, y: 0.62, z: 3.35}
-  - Id: Main_4302f2a2-4d3a-4525-a6e0-9f05976b42fb
-    MonsterTypeId: 0
-    Position: {x: 14.43, y: 0.62, z: -12.09}
-  - Id: Main_eb7e8896-087e-4a59-9278-6044ff1b18ef
-    MonsterTypeId: 0
-    Position: {x: 8.19, y: 0.62, z: -12.48}
-  InitialHeroPosition: {x: 1.78, y: 1.24, z: -8.36}
+    MonsterTypeId: 2
+    Position: {x: -4.154244, y: 0.06747818, z: 18.180609}
+  InitialHeroPosition: {x: -4.6, y: 0.26, z: -18.6}
