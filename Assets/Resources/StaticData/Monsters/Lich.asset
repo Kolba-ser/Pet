@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Lich
   m_EditorClassIdentifier: 
   PrefabReference:
-    m_AssetGUID: 
+    m_AssetGUID: d69fe0170a34a924b9b0756d21c78dab
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   TypeId: 0
-  MaxLootValue: 0
-  MinLootValue: 0
-  Hp: 0
-  Damage: 0
-  EffectiveDistance: 0
-  Cleavage: 0
-  MoveSpeed: 0
-  MinimalMoveDistance: 0
+  MaxLootValue: 50
+  MinLootValue: 20
+  Hp: 21
+  Damage: 6.1
+  EffectiveDistance: 0.654
+  Cleavage: 0.651
+  MoveSpeed: 3.49
+  MinimalMoveDistance: 3.19

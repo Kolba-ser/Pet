@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   PrefabReference:
-    m_AssetGUID: 
+    m_AssetGUID: fef8ee76ba818f84b81b11da6bda5ddf
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  TypeId: 0
-  MaxLootValue: 0
-  MinLootValue: 0
-  Hp: 0
-  Damage: 0
-  EffectiveDistance: 0
-  Cleavage: 0
-  MoveSpeed: 0
-  MinimalMoveDistance: 0
+  TypeId: 1
+  MaxLootValue: 100
+  MinLootValue: 50
+  Hp: 72
+  Damage: 10.8
+  EffectiveDistance: 0.808
+  Cleavage: 0.685
+  MoveSpeed: 2.19
+  MinimalMoveDistance: 1.51
