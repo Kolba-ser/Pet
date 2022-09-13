@@ -38,7 +38,7 @@ namespace Pet.Infrastructure
 
             playerProgress.HeroState.MaxHealth = 50;
             playerProgress.HeroState.ResetHealth();
-            playerProgress.HeroStats.Damage = 1;
+            playerProgress.HeroStats.Damage = 6;
             playerProgress.HeroStats.Radius = 0.5f;
 
             return playerProgress;

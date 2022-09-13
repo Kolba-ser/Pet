@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 1fcbb4e46aa2c7748a45ffba6cbf4147
   m_SerializeEntries:
-  - m_GUID: fef8ee76ba818f84b81b11da6bda5ddf
-    m_Address: Golem
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d69fe0170a34a924b9b0756d21c78dab
-    m_Address: Lich
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: c09d884e7ca40460f91e5b20675d3e94
-    m_Address: Dragon
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: d587ba2fd38b20449986c007d26d2b8a
     m_Address: Loot
     m_ReadOnly: 0
@@ -37,16 +25,28 @@ MonoBehaviour:
     m_Address: Spawner
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 181862a89f60d7a459002f9870860ad4
-    m_Address: Hero
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: f6395af14c6ae2d4ea00c7e97e633ad3
     m_Address: Hud
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 1f273f20224ae374298253c4062f529e
     m_Address: RootCanvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7661cd72441bdb4469d07ea1cfc4ecc6
+    m_Address: Mimic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c402e322f921f274691783c25d5c0e86
+    m_Address: Orc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 49288598fdbc6b441803ad104d0d4092
+    m_Address: Beholder
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 749185b54fa564444a765078c84811c7
+    m_Address: HellGolem
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

@@ -8,7 +8,7 @@ namespace Pet.StaticData
 {
     public class SettingsDataRegistry : ISettingsDataRegistry
     {
-        private Dictionary<MonsterType, MonsterSettings> _monstres;
+        private Dictionary<EnemyType, MonsterSettings> _monstres;
         private Dictionary<string, LevelSettings> _levels;
         private Dictionary<WindowType, UIWindow> _windowsConfigs;
 
@@ -26,7 +26,7 @@ namespace Pet.StaticData
                          .ToDictionary(x => x.WindowId, x => x);
         }
 
-        public MonsterSettings ForMonster(MonsterType typeId) =>
+        public MonsterSettings ForMonster(EnemyType typeId) =>
             _monstres.TryGetValue(typeId, out MonsterSettings staticData)
             ? staticData
             : null;

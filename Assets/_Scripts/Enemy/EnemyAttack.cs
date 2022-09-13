@@ -38,7 +38,10 @@ namespace Pet.Enemy
             UpdateCooldown();
 
             if (CanAttack())
+            {
+                Debug.Log("Attack");
                 StartAttack();
+            }
         }
 
         public void EnableAttack() =>
@@ -49,6 +52,7 @@ namespace Pet.Enemy
 
         private void OnAttack()
         {
+            Debug.Log("Attack");
             if (Hit(out Collider hit))
             {
                 Extensions.DrawRay(hit.transform.position, _cleavege, 2);
@@ -58,6 +62,7 @@ namespace Pet.Enemy
 
         private void OnAttackedEnded()
         {
+            Debug.Log("OnAttackedEnded");
             currentAttackCooldown = _attackCooldown;
             _isAttacked = false;
         }

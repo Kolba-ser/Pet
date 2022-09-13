@@ -5,6 +5,6 @@ namespace Pet.Logic.EnemySpawners
 {
     public class SpawnMarker : MonoBehaviour
     {
-        public MonsterType MonsterTypeId;
+        public EnemyType MonsterTypeId;
     }
 }

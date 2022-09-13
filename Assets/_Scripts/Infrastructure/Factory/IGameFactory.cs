@@ -28,9 +28,9 @@ namespace Pet.Infrastructure.Factory
 
         public Task<EnemyLoot> CreateLoot();
 
-        public Task<GameObject> CreateMonster(MonsterType typeId, Transform parent);
+        public Task<GameObject> CreateMonster(EnemyType typeId, Transform parent);
 
-        public Task CreateSpawner(Vector3 position, string spawnerId, MonsterType monsterTypeId);
+        public Task CreateSpawner(Vector3 position, string spawnerId, EnemyType monsterTypeId);
 
         Task WarmUp();
     }

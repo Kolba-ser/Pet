@@ -87,11 +87,8 @@ namespace Pet.Infrastructure
 
         private static IInputService InputService()
         {
-#if UNITY_EDITOR
             return new StandaloneInputService();
-#else
-            retutn new MobileInputService();
-#endif
+
         }
     }
 }

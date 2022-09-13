@@ -10,12 +10,12 @@ namespace Pet.Logic.EnemySpawners
     public class SpawnPoint : MonoBehaviour, ISavedProgress
     {
         private IGameFactory _gameFactory;
-        private MonsterType _typeId;
+        private EnemyType _typeId;
         private EnemyDeath _enemyDeath;
         private bool _slain;
         private string _id;
 
-        public void Construct(string id, MonsterType monsterTypeId, IGameFactory gameFactory)
+        public void Construct(string id, EnemyType monsterTypeId, IGameFactory gameFactory)
         {
             _id = id;
             _typeId = monsterTypeId;

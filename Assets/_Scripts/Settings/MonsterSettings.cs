@@ -11,7 +11,7 @@ namespace Pet.StaticData
         public AssetReferenceGameObject PrefabReference;
 
         [Space(20)]
-        public MonsterType TypeId;
+        public EnemyType TypeId;
 
         [Space(20)]
         public int MaxLootValue;

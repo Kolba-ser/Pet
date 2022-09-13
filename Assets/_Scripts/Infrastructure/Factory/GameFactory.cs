@@ -62,7 +62,7 @@ namespace Pet.Infrastructure.Factory
             return hud;
         }
 
-        public async Task<GameObject> CreateMonster(MonsterType typeId, Transform parent)
+        public async Task<GameObject> CreateMonster(EnemyType typeId, Transform parent)
         {
             MonsterSettings monsterData = _staticData.ForMonster(typeId);
 
@@ -98,7 +98,7 @@ namespace Pet.Infrastructure.Factory
             return lootPiece;
         }
 
-        public async Task CreateSpawner(Vector3 position, string spawnerId, MonsterType monsterTypeId)
+        public async Task CreateSpawner(Vector3 position, string spawnerId, EnemyType monsterTypeId)
         {
             var prefab = await _assets.Load<GameObject>(AssetAddress.SPAWNER);
 

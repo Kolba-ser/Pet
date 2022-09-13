@@ -5,7 +5,7 @@ namespace Pet.StaticData
 {
     public interface ISettingsDataRegistry : IService
     {
-        public MonsterSettings ForMonster(MonsterType typeId);
+        public MonsterSettings ForMonster(EnemyType typeId);
 
         public void Load();
 

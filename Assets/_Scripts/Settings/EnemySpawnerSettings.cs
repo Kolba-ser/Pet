@@ -7,10 +7,10 @@ namespace Pet.StaticData
     public class EnemySpawnerSettings
     {
         public string Id;
-        public MonsterType MonsterTypeId;
+        public EnemyType MonsterTypeId;
         public Vector3 Position;
 
-        public EnemySpawnerSettings(string id, MonsterType monsterTypeId, Vector3 position)
+        public EnemySpawnerSettings(string id, EnemyType monsterTypeId, Vector3 position)
         {
             Id = id;
             MonsterTypeId = monsterTypeId;
