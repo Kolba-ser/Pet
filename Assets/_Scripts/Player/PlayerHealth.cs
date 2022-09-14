@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.Enemy;
-using Pet.Infrastructure.Services.Progress;
+using Pet.Services.Progress;
 using System;
 using UnityEngine;
 
@@ -31,13 +31,13 @@ namespace Pet.Player
             set => _heroState.MaxHealth = value;
         }
 
-        public void LoadProgress(PlayerProgress progress)
+        public void Load(PlayerProgress progress)
         {
             _heroState = progress.HeroState;
             OnHealthChange?.Invoke();
         }
 
-        public void UpdateProgress(PlayerProgress progress)
+        public void Save(PlayerProgress progress)
         {
             progress.HeroState.CurrentHealth = Current;
         }

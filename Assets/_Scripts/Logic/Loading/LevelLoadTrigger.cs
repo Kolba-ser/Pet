@@ -13,7 +13,7 @@ namespace Pet.Logic
         private bool _triggered;
 
         private void Awake() =>
-            _stateMachine = Infrastructure.Services.Services.Container.Single<IStateMachine>();
+            _stateMachine = Services.Services.Container.Single<IStateMachine>();
 
         private void OnTriggerEnter(Collider other)
         {

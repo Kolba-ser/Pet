@@ -1,6 +1,6 @@
 ﻿using Pet.Infrastructure;
-using Pet.Infrastructure.AssetManagment;
-using Pet.Infrastructure.Services.Progress;
+using Pet.AssetManagment;
+using Pet.Services.Progress;
 using Pet.StaticData;
 using System.Threading.Tasks;
 using UnityEngine;

@@ -1,4 +1,4 @@
-﻿using Pet.Infrastructure.SaveLoad;
+﻿using Pet.SaveLoad;
 using UnityEngine;
 
 namespace Pet.Logic
@@ -13,7 +13,7 @@ namespace Pet.Logic
         private void Awake()
         {
             boxCollider = boxCollider ?? GetComponent<BoxCollider>();
-            _saveLoadService = Infrastructure.Services.Services.Container.Single<ISaveLoadService>();
+            _saveLoadService = Services.Services.Container.Single<ISaveLoadService>();
         }
 
         private void OnTriggerEnter(Collider other)

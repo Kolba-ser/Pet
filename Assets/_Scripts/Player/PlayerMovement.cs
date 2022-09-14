@@ -1,5 +1,5 @@
 ﻿using Pet.Data;
-using Pet.Infrastructure.Services.Progress;
+using Pet.Services.Progress;
 using Pet.Services.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +16,7 @@ namespace Pet.Player
 
         private IInputService _inputService;
 
-        public void LoadProgress(PlayerProgress progress)
+        public void Load(PlayerProgress progress)
         {
             if (CurrentLevel() == progress.WorldData.PositionOnLevel.Level)
             {
@@ -33,7 +33,7 @@ namespace Pet.Player
             _characterController.enabled = true;
         }
 
-        public void UpdateProgress(PlayerProgress progress) =>
+        public void Save(PlayerProgress progress) =>
             progress.WorldData.PositionOnLevel = new PositionOnScene(transform.position.AsVector3Data(), CurrentLevel());
 
         private static string CurrentLevel() =>
@@ -41,7 +41,7 @@ namespace Pet.Player
 
         private void Awake()
         {
-            _inputService = Infrastructure.Services.Services.Container.Single<IInputService>();
+            _inputService = Services.Services.Container.Single<IInputService>();
 
             _characterController = GetComponent<CharacterController>();
         }

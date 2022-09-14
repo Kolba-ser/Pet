@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.Enemy;
-using Pet.Infrastructure.Services.Progress;
+using Pet.Services.Progress;
 using Pet.Services.Input;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ namespace Pet.Player
 
         private void Awake()
         {
-            _inputService = Infrastructure.Services.Services.Container.Single<IInputService>();
+            _inputService = Services.Services.Container.Single<IInputService>();
             _layerMask = 1 << LayerMask.NameToLayer("Hittable");
         }
 
@@ -42,7 +42,7 @@ namespace Pet.Player
         private Vector3 StartPoint() =>
             new Vector3(transform.position.x, _characterController.center.y / 2, transform.position.z);
 
-        public void LoadProgress(PlayerProgress progress) =>
+        public void Load(PlayerProgress progress) =>
             _heroStats = progress.HeroStats;
     }
 }

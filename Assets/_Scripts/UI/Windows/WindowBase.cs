@@ -1,5 +1,5 @@
 ﻿using Pet.Data;
-using Pet.Infrastructure.Services.Progress;
+using Pet.Services.Progress;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,4 +1,4 @@
-﻿using Pet.Infrastructure.Services;
+﻿using Pet.Services;
 
 namespace Pet.UI.Services
 {

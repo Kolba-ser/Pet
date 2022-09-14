@@ -1,5 +1,5 @@
 ﻿using Pet.Data;
-using Pet.Infrastructure.Factory;
+using Pet.Factory;
 using Pet.Services.Randomizer;
 using UnityEngine;
 
