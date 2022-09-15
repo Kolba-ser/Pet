@@ -16,11 +16,5 @@ MonoBehaviour:
   EnemySpawners:
   - Id: GraveyardNight_a72c7d2e-5abd-49f3-9fb4-2f241cd12efb
     MonsterTypeId: 3
-    Position: {x: -14.19, y: 0.62, z: -15.25}
-  - Id: GraveyardNight_db0bf7b0-7162-457a-b887-96afb9e9ac0c
-    MonsterTypeId: 3
-    Position: {x: -1.29, y: 0.62, z: -15.25}
-  - Id: Main_9c3b215b-209c-4933-93c5-a50d8fc41499
-    MonsterTypeId: 3
-    Position: {x: 10.02, y: 0.62, z: -15.25}
-  InitialHeroPosition: {x: 0.6633582, y: 0, z: 11.560211}
+    Position: {x: -1.28, y: 0.815, z: 16}
+  InitialHeroPosition: {x: -1.5653894, y: 1.3192828, z: 14.212436}

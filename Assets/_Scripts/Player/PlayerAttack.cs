@@ -11,20 +11,16 @@ namespace Pet.Player
         [SerializeField] private PlayerAnimator _heroAnimator;
         [SerializeField] private CharacterController _characterController;
 
-        private IInputService _inputService;
         private LayerMask _layerMask;
         private Collider[] _hits = new Collider[3];
         private Stats _heroStats;
 
-        private void Awake()
-        {
-            _inputService = Services.Services.Container.Single<IInputService>();
+        private void Awake() => 
             _layerMask = 1 << LayerMask.NameToLayer("Hittable");
-        }
 
         private void Update()
         {
-            if (_inputService.IsAttackButtonUp() && !_heroAnimator.IsAttacking)
+            if (Input.GetKey(KeyCode.Mouse0) && !_heroAnimator.IsAttacking)
                 _heroAnimator.PlayAttack();
         }
 

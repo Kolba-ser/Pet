@@ -1,5 +1,4 @@
 ﻿using Pet.Services;
-using Pet.UI.Services;
 
 namespace Pet.StaticData
 {
@@ -10,7 +9,5 @@ namespace Pet.StaticData
         public void Load();
 
         public LevelSettings ForLevel(string sceneKey);
-
-        public UIWindow ForWindow(WindowType shop);
     }
 }

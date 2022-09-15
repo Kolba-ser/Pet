@@ -6,8 +6,6 @@ using Pet.Services.Progress;
 using Pet.Services.Input;
 using Pet.Services.Randomizer;
 using Pet.StaticData;
-using Pet.UI.Services;
-using Pet.UI.Services.Factory;
 
 namespace Pet.Infrastructure
 {
@@ -49,13 +47,6 @@ namespace Pet.Infrastructure
             _allServices.RegisterSingle<IProgressHolderService>(new ProgressHolderService());
             _allServices.RegisterSingle<IStateMachine>(_gameStateMachine);
 
-            _allServices.RegisterSingle<IUIFactory>(new UIFactory(
-                _allServices.Single<IAssetsProvider>(),
-                _allServices.Single<ISettingsDataRegistry>(),
-                _allServices.Single<IProgressHolderService>()
-                ));
-            _allServices.RegisterSingle<IWindowService>(new WindowService(
-                _allServices.Single<IUIFactory>()));
 
             _allServices.RegisterSingle<IInputService>(InputService());
             _allServices.RegisterSingle<IService>(new RandomService());
@@ -63,8 +54,7 @@ namespace Pet.Infrastructure
                 _allServices.Single<IAssetsProvider>(),
                 _allServices.Single<ISettingsDataRegistry>(),
                 _allServices.Single<IRandomService>(),
-                _allServices.Single<IProgressHolderService>(),
-                _allServices.Single<IWindowService>()));
+                _allServices.Single<IProgressHolderService>()));
 
             _allServices.RegisterSingle<ISaveLoadService>(new SaveLoadService(
                 _allServices.Single<IGameFactory>(),

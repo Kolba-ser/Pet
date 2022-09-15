@@ -3,7 +3,6 @@ using Pet.SaveLoad;
 using Pet.Services.Progress;
 using Pet.Logic;
 using Pet.StaticData;
-using Pet.UI.Services;
 using System;
 using System.Collections.Generic;
 
@@ -19,7 +18,7 @@ namespace Pet.Infrastructure
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstarpState)] = new BootstarpState(this, sceneLoader, services),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen, services.Single<IGameFactory>(), services.Single<IProgressHolderService>(), services.Single<ISettingsDataRegistry>(), services.Single<IUIFactory>()),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingScreen, services.Single<IGameFactory>(), services.Single<IProgressHolderService>(), services.Single<ISettingsDataRegistry>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IProgressHolderService>(), services.Single<ISaveLoadService>()),
                 [typeof(GameLoopState)] = new GameLoopState(this),
             };

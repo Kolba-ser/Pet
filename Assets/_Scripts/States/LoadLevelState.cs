@@ -5,7 +5,6 @@ using Pet.Logic;
 using Pet.Player;
 using Pet.StaticData;
 using Pet.UI;
-using Pet.UI.Services;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,9 +19,8 @@ namespace Pet.Infrastructure
         private readonly IGameFactory _gameFactory;
         private readonly IProgressHolderService _persistentProgress;
         private readonly ISettingsDataRegistry _staticData;
-        private readonly IUIFactory _uiFactory;
 
-        public LoadLevelState(StateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IProgressHolderService persistentProgress, ISettingsDataRegistry staticData, IUIFactory uiFactory)
+        public LoadLevelState(StateMachine gameStateMachine, SceneLoader sceneLoader, LoadingScreen loadingScreen, IGameFactory gameFactory, IProgressHolderService persistentProgress, ISettingsDataRegistry staticData)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
@@ -30,7 +28,6 @@ namespace Pet.Infrastructure
             _gameFactory = gameFactory;
             _persistentProgress = persistentProgress;
             _staticData = staticData;
-            _uiFactory = uiFactory;
         }
 
         public void Enter(string sceneName)
@@ -48,15 +45,12 @@ namespace Pet.Infrastructure
         private async void OnLoaded()
         {
             _gameFactory.CleanUp();
-            await InitUIRootAsync();
             await InitGameWorld();
             await _gameFactory.WarmUp();
             InformProgressReaders();
             _gameStateMachine.Enter<GameLoopState>();
         }
 
-        private async Task InitUIRootAsync() =>
-             await _uiFactory.CreateUIRootAsync();
 
         private void InformProgressReaders()
         {
@@ -94,12 +88,17 @@ namespace Pet.Infrastructure
 
         private async Task InitHudAsync(GameObject hero, LevelSettings levelData)
         {
-            GameObject hud = await _gameFactory.CreateHUDAsync();
-
-            hud.GetComponentInChildren<HealthPresenter>().Construct(hero.GetComponent<PlayerHealth>());
+            if(SceneManager.GetActiveScene().name != "MainMenu")
+            {
+                GameObject hud = await _gameFactory.CreateHUDAsync();
+                hud.GetComponentInChildren<HealthPresenter>().Construct(hero.GetComponent<PlayerHealth>());
+            }
         }
 
-        private void CameraFollow(GameObject target) =>
-            Camera.main.GetComponent<CameraFollower>().Follow(target);
+        private void CameraFollow(GameObject target)
+        {
+            if(Camera.main.TryGetComponent(out CameraFollower cameraFollower))
+                cameraFollower.Follow(target);
+        }
     }
 }

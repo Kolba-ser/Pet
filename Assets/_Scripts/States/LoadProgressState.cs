@@ -19,22 +19,22 @@ namespace Pet.Infrastructure
 
         public void Enter()
         {
-            LoadProgressOrInitNew();
-            _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.WorldData.PositionOnLevel.Level);
+            LoadProgress();
+            _gameStateMachine.Enter<LoadLevelState, string>("MainMenu");
         }
 
         public void Exit()
         {
         }
 
-        private void LoadProgressOrInitNew() =>
+        private void LoadProgress() =>
             _progressService.Progress =
             _saveLoadService.LoadProgress()
             ?? NewProgress();
 
         private static PlayerProgress NewProgress()
         {
-            PlayerProgress playerProgress = new PlayerProgress(initialLevel: "GraveyardDay");
+            PlayerProgress playerProgress = new PlayerProgress(initialLevel: "MainMenu");
 
             playerProgress.HeroState.MaxHealth = 50;
             playerProgress.HeroState.ResetHealth();

@@ -7,10 +7,7 @@ namespace Pet.Enemy
 {
     public class EnemyLoot : MonoBehaviour
     {
-        [SerializeField] private GameObject _skull;
-        [SerializeField] private GameObject _pickupFx;
-        [SerializeField] private TextMeshPro _lootText;
-        [SerializeField] private GameObject _pickupPopup;
+        [SerializeField] private GameObject _pumpking;
 
         private Loot _loot;
         private bool _picked;
@@ -38,8 +35,6 @@ namespace Pet.Enemy
 
             UpdateLootValue();
             Hide();
-            PlayPickupFx();
-            ShowText();
 
             StartCoroutine(StartDestroyTimer());
         }
@@ -51,16 +46,7 @@ namespace Pet.Enemy
 
         private void Hide()
         {
-            _skull.SetActive(false);
-        }
-
-        private void PlayPickupFx() =>
-            Instantiate(_pickupFx, transform.position, Quaternion.identity);
-
-        private void ShowText()
-        {
-            _lootText.text = $"{_loot.Value}";
-            _pickupPopup.SetActive(true);
+            _pumpking.SetActive(false);
         }
 
         private IEnumerator StartDestroyTimer()

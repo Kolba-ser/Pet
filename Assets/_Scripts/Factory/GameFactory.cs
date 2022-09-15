@@ -5,8 +5,6 @@ using Pet.Logic.EnemySpawners;
 using Pet.Services.Randomizer;
 using Pet.StaticData;
 using Pet.UI;
-using Pet.UI.Elements;
-using Pet.UI.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -21,20 +19,18 @@ namespace Pet.Factory
         private readonly ISettingsDataRegistry _staticData;
         private readonly IRandomService _random;
         private readonly IProgressHolderService _persistentProgress;
-        private readonly IWindowService _windowService;
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
         private GameObject _hero;
 
-        public GameFactory(IAssetsProvider assets, ISettingsDataRegistry staticData, IRandomService random, IProgressHolderService persistentProgress, IWindowService windowService)
+        public GameFactory(IAssetsProvider assets, ISettingsDataRegistry staticData, IRandomService random, IProgressHolderService persistentProgress)
         {
             _assets = assets;
             _staticData = staticData;
             _random = random;
             _persistentProgress = persistentProgress;
-            _windowService = windowService;
         }
 
         public void CleanUp()
@@ -54,11 +50,10 @@ namespace Pet.Factory
         {
             GameObject hud = await InstantiateRegisteredAsync(AssetAddress.HUD_PATH);
 
+            Debug.Log(hud);
             hud.GetComponentInChildren<LootPresenter>()
                 .Construct(_persistentProgress.Progress.WorldData);
 
-            foreach (OpenWindowButton button in hud.GetComponentsInChildren<OpenWindowButton>())
-                button.Construct(_windowService);
 
             return hud;
         }
@@ -71,18 +66,18 @@ namespace Pet.Factory
 
             GameObject monster = UnityEngine.Object.Instantiate(prefab, parent.position, Quaternion.identity, parent);
 
-            IDamagable health = monster.GetComponent<IDamagable>();
+            IDamagable health = monster.GetComponentInChildren<IDamagable>();
             health.Current = monsterData.Hp;
             health.Max = monsterData.Hp;
 
-            monster.GetComponent<HealthPresenter>().Construct(health);
-            monster.GetComponent<AgentMover>().Construct(_hero.transform, monsterData.MinimalMoveDistance);
-            monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
+            monster.GetComponentInChildren<HealthPresenter>().Construct(health);
+            monster.GetComponentInChildren<AgentMover>().Construct(_hero.transform, monsterData.MinimalMoveDistance);
+            monster.GetComponentInChildren<NavMeshAgent>().speed = monsterData.MoveSpeed;
 
             EnemyAttack attack = monster.GetComponent<EnemyAttack>();
             attack.Construct(_hero.transform, monsterData.Damage, monsterData.Cleavage, monsterData.EffectiveDistance);
 
-            monster.GetComponent<TowardRotator>()?.Construct(_hero.transform);
+            monster.GetComponentInChildren<TowardRotator>()?.Construct(_hero.transform);
             LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
             lootSpawner.Construct(this, new RandomService());
             lootSpawner.SetLoot(monsterData.MinLootValue, monsterData.MaxLootValue);
