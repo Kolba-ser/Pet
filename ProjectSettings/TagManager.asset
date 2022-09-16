@@ -10,11 +10,12 @@ TagManager:
   - FxTemporaire
   - InitialPoint
   - LoadingCurtain
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 

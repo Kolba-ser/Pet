@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.Enemy;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 using System;
 using UnityEngine;
 

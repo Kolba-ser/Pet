@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using Pet.UI;
+using UnityEngine;
 
 namespace Pet.Player
 {
     public class PlayerDeath : MonoBehaviour
     {
+        [SerializeField] private DeathScreen _deathScreen;
         [SerializeField] private PlayerHealth _health;
         [SerializeField] private PlayerMovement _heroMove;
         [SerializeField] private PlayerAttack _heroAttack;
@@ -30,7 +32,7 @@ namespace Pet.Player
             _heroMove.enabled = false;
             _heroAttack.enabled = false;
             _heroAnimator.PlayDeath();
-
+            Instantiate(_deathScreen);
             Instantiate(_deathFx, transform.position, Quaternion.identity);
         }
     }

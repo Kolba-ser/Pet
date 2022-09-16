@@ -1,8 +1,8 @@
 ﻿using Pet.Enemy;
 using Pet.AssetManagment;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 using Pet.Logic.EnemySpawners;
-using Pet.Services.Randomizer;
+using Pet.Service.Randomizer;
 using Pet.StaticData;
 using Pet.UI;
 using System.Collections.Generic;
@@ -89,16 +89,16 @@ namespace Pet.Factory
         {
             var prefab = await _assets.Load<GameObject>(AssetAddress.LOOT);
 
-            EnemyLoot lootPiece = InstantiateRegistered(prefab).GetComponent<EnemyLoot>();
-            lootPiece.Construct(_persistentProgress.Progress.WorldData);
-            return lootPiece;
+            EnemyLoot loot = InstantiateRegistered(prefab).GetComponent<EnemyLoot>();
+            loot.Construct(_persistentProgress.Progress.WorldData);
+            return loot;
         }
 
         public async Task CreateSpawner(Vector3 position, string spawnerId, EnemyType monsterTypeId)
         {
             var prefab = await _assets.Load<GameObject>(AssetAddress.SPAWNER);
 
-            SpawnPoint spawnPoint = InstantiateRegistered(prefab, position).GetComponent<SpawnPoint>();
+            EnemySpawner spawnPoint = InstantiateRegistered(prefab, position).GetComponent<EnemySpawner>();
             spawnPoint.Construct(spawnerId, monsterTypeId, this);
         }
 

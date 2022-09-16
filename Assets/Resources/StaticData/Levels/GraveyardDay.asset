@@ -14,25 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: GraveyardDay
   EnemySpawners:
+  - Id: GraveyardDay_3aa0d1dd-b3a0-4a5b-8c2e-269647703805
+    MonsterTypeId: 2
+    Position: {x: -6.23, y: 0.62, z: -10.6}
+  - Id: GraveyardDay_82c78629-966b-4bf7-85e5-1e4461de0679
+    MonsterTypeId: 1
+    Position: {x: -5.75, y: 0.62, z: -5.89}
+  - Id: GraveyardDay_1b7d3451-6596-4642-a658-24ad08a0bb19
+    MonsterTypeId: 1
+    Position: {x: -9.13, y: 0.62, z: 1.1}
+  - Id: GraveyardDay_4e888703-d71d-4244-a417-29be299d152a
+    MonsterTypeId: 1
+    Position: {x: -7.53, y: 0.62, z: 1.03}
+  - Id: GraveyardDay_dfe74f18-954f-4eec-ae5d-1df874d9d74d
+    MonsterTypeId: 1
+    Position: {x: -5.98, y: 0.62, z: 0.98}
+  - Id: GraveyardDay_d23396cf-401f-48a3-b845-1d3dd18fa7f3
+    MonsterTypeId: 1
+    Position: {x: -4.42, y: 0.62, z: 1.06}
+  - Id: GraveyardDay_83224d13-da29-4076-8674-1d416b5f35a7
+    MonsterTypeId: 2
+    Position: {x: -8.84, y: 0.62, z: -16.68}
+  - Id: GraveyardDay_bcfa26d5-1117-4617-94e2-2d7b260b2f24
+    MonsterTypeId: 2
+    Position: {x: 0.42, y: 0.62, z: -10.709}
+  - Id: GraveyardDay_167dbf6e-3c5a-4cd6-a061-1f0f8f1ad6ec
+    MonsterTypeId: 2
+    Position: {x: -11.67, y: 0.62, z: -13.06}
+  - Id: GraveyardDay_64d2cd88-f6b9-4fba-91e9-034041344b2a
+    MonsterTypeId: 2
+    Position: {x: -7.46, y: 0.62, z: -16.37}
   - Id: GraveyardDay_c1296df4-2c26-4f4e-9568-c4b05a01db2b
     MonsterTypeId: 1
     Position: {x: -12.09, y: 0.62, z: -3.44}
-  - Id: GraveyardDay_167dbf6e-3c5a-4cd6-a061-1f0f8f1ad6ec
-    MonsterTypeId: 2
-    Position: {x: -11.26, y: 0.62, z: -12.63}
-  - Id: GraveyardDay_64d2cd88-f6b9-4fba-91e9-034041344b2a
-    MonsterTypeId: 0
-    Position: {x: -7.46, y: 0.62, z: -16.37}
   - Id: GraveyardDay_42d2e968-57ce-4436-9d4f-a7010718ac14
-    MonsterTypeId: 1
-    Position: {x: 8.21, y: 0.62, z: 3.35}
+    MonsterTypeId: 0
+    Position: {x: 7.08, y: 0.62, z: 3.92}
   - Id: GraveyardDay_177fcd43-31cc-4c38-a0c0-ae6a3aa8f73c
     MonsterTypeId: 0
-    Position: {x: 14.43, y: 0.62, z: -12.09}
+    Position: {x: 12.22, y: 0.62, z: -9.29}
   - Id: GraveyardDay_2af22d78-ed02-4c80-9892-f896fae26dc1
     MonsterTypeId: 2
-    Position: {x: 8.91, y: 0.62, z: -11.51}
+    Position: {x: 2.988, y: 0.62, z: -10.709}
   - Id: GraveyardDay_4838ac5c-44fb-4433-a3bd-bd81d859cd17
     MonsterTypeId: 0
-    Position: {x: -10.3, y: 0.62, z: -14.79}
-  InitialHeroPosition: {x: 1.78, y: 1.24, z: -8.36}
+    Position: {x: -5.88, y: 0.62, z: -13.52}
+  InitialHeroPosition: {x: 10.52, y: 1.24, z: -16.63}

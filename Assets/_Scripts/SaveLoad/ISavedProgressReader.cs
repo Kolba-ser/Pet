@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 
-namespace Pet.Services.Progress
+namespace Pet.Service.Progress
 {
     public interface ISavedProgressReader
     {

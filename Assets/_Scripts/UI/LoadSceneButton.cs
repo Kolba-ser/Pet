@@ -13,7 +13,7 @@ namespace Pet.UI
 
         private void Awake()
         {
-            _stateMachine = Services.Services.Container.Single<IStateMachine>();
+            _stateMachine = Service.Services.Container.Single<IStateMachine>();
             GetComponent<Button>().onClick.AddListener(Load);
         }
 

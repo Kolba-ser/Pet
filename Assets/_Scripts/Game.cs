@@ -6,7 +6,7 @@ namespace Pet.Infrastructure
 
         public Game(ICoroutineLauncher coroutineRunner, Logic.LoadingScreen loadingScreen)
         {
-            _stateMachine = new StateMachine(new SceneLoader(coroutineRunner), loadingScreen, Services.Services.Container);
+            _stateMachine = new StateMachine(new SceneLoader(coroutineRunner), loadingScreen, Service.Services.Container);
         }
     }
 }

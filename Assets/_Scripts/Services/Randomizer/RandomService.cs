@@ -1,6 +1,6 @@
 ﻿using Random = UnityEngine.Random;
 
-namespace Pet.Services.Randomizer
+namespace Pet.Service.Randomizer
 {
     public class RandomService : IRandomService
     {

@@ -5,27 +5,25 @@ namespace Pet.Logic
 {
     public class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup screen;
+        [SerializeField] private CanvasGroup _screen;
 
-        private void Awake()
-        {
+        private void Awake() => 
             DontDestroyOnLoad(this);
-        }
 
         public void Show()
         {
             gameObject.SetActive(true);
-            screen.alpha = 1;
+            _screen.alpha = 1;
         }
 
         public void Hide() =>
-            StartCoroutine(FadeIn());
+            StartCoroutine(FadeOut());
 
-        private IEnumerator FadeIn()
+        private IEnumerator FadeOut()
         {
-            while (screen.alpha > 0)
+            while (_screen.alpha > 0)
             {
-                screen.alpha -= 0.03f;
+                _screen.alpha -= 0.03f;
                 yield return new WaitForSeconds(0.03f);
             }
 

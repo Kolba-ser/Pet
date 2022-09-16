@@ -1,6 +1,6 @@
 ﻿using Pet.CameraLogic;
 using Pet.Factory;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 using Pet.Logic;
 using Pet.Player;
 using Pet.StaticData;
@@ -44,10 +44,13 @@ namespace Pet.Infrastructure
 
         private async void OnLoaded()
         {
-            _gameFactory.CleanUp();
-            await InitGameWorld();
-            await _gameFactory.WarmUp();
-            InformProgressReaders();
+            if (SceneManager.GetActiveScene().name != "MainMenu")
+            {
+                _gameFactory.CleanUp();
+                await InitGameWorld();
+                await _gameFactory.WarmUp();
+                InformProgressReaders();
+            }
             _gameStateMachine.Enter<GameLoopState>();
         }
 

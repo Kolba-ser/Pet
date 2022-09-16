@@ -43,7 +43,8 @@ namespace Pet.Enemy
 
         private IEnumerator DestroyTimer()
         {
-            yield return new WaitForSeconds(3);
+            GetComponentInChildren<Collider>().enabled = false;
+            yield return new WaitForSeconds(2);
             Destroy(gameObject);
         }
     }

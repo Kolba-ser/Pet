@@ -20,8 +20,8 @@ MonoBehaviour:
   TypeId: 3
   MaxLootValue: 500
   MinLootValue: 200
-  Hp: 21
-  Damage: 1
+  Hp: 100
+  Damage: 5
   EffectiveDistance: 0.727
   Cleavage: 0.687
   MoveSpeed: 2.09

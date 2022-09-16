@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.Factory;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 using UnityEngine;
 
 namespace Pet.SaveLoad

@@ -1,6 +1,6 @@
 ﻿using Pet.Factory;
 using Pet.SaveLoad;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 using Pet.Logic;
 using Pet.StaticData;
 using System;
@@ -13,7 +13,7 @@ namespace Pet.Infrastructure
         private Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public StateMachine(SceneLoader sceneLoader, LoadingScreen loadingScreen, Services.Services services)
+        public StateMachine(SceneLoader sceneLoader, LoadingScreen loadingScreen, Service.Services services)
         {
             _states = new Dictionary<Type, IExitableState>()
             {

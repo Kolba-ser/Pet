@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: GraveyardNight
   EnemySpawners:
+  - Id: GraveyardNight_588532d8-93da-41e5-a5e8-5944e4925f2e
+    MonsterTypeId: 3
+    Position: {x: 5.91, y: -0.13, z: 9.89}
   - Id: GraveyardNight_a72c7d2e-5abd-49f3-9fb4-2f241cd12efb
     MonsterTypeId: 3
-    Position: {x: -1.28, y: 0.815, z: 16}
+    Position: {x: -10.612, y: 0.439, z: 5.382}
+  - Id: GraveyardNight_8f566f22-c464-4d55-8d8a-bb21b01fae36
+    MonsterTypeId: 3
+    Position: {x: 9.02, y: -0.01, z: -3.51}
   InitialHeroPosition: {x: -1.5653894, y: 1.3192828, z: 14.212436}

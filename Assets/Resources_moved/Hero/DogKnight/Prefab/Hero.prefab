@@ -1427,6 +1427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeafb7457dc4b84d80b694cb5c03983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathScreen: {fileID: 7569197214445731375, guid: 27a62304a8733c345bf492b1585d7a62,
+    type: 3}
   _health: {fileID: 892088659}
   _heroMove: {fileID: 892088661}
   _heroAttack: {fileID: 892088662}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pet.Services.Input
+namespace Pet.Service.Input
 {
     public class StandaloneInputService : InputService
     {

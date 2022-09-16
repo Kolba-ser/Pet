@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 
-namespace Pet.Services.Progress
+namespace Pet.Service.Progress
 {
     public interface IProgressHolderService : IService
     {
@@ -9,5 +9,7 @@ namespace Pet.Services.Progress
             get;
             set;
         }
+
+        public void NewProgress();
     }
 }

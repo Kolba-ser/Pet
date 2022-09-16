@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.SaveLoad;
-using Pet.Services.Progress;
+using Pet.Service.Progress;
 
 namespace Pet.Infrastructure
 {
@@ -36,7 +36,7 @@ namespace Pet.Infrastructure
         {
             PlayerProgress playerProgress = new PlayerProgress(initialLevel: "MainMenu");
 
-            playerProgress.HeroState.MaxHealth = 50;
+            playerProgress.HeroState.MaxHealth = 200;
             playerProgress.HeroState.ResetHealth();
             playerProgress.HeroStats.Damage = 20;
             playerProgress.HeroStats.Radius = 1f;

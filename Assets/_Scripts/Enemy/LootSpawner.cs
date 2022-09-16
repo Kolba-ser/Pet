@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
 using Pet.Factory;
-using Pet.Services.Randomizer;
+using Pet.Service.Randomizer;
 using UnityEngine;
 
 namespace Pet.Enemy
@@ -29,12 +29,12 @@ namespace Pet.Enemy
 
         private async void SpawnLootAsync()
         {
-            EnemyLoot loot = await _factory.CreateLoot();
-            loot.transform.position = transform.position;
+            EnemyLoot enemyLoot = await _factory.CreateLoot();
+            enemyLoot.transform.position = transform.position;
 
             Loot lootItem = GenerateLoot();
 
-            loot.Initialiaze(lootItem);
+            enemyLoot.Initialiaze(lootItem);
         }
 
         private Loot GenerateLoot() => new Loot()

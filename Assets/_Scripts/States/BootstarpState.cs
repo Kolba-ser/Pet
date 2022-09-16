@@ -1,10 +1,10 @@
 ﻿using Pet.AssetManagment;
 using Pet.Factory;
 using Pet.SaveLoad;
-using Pet.Services;
-using Pet.Services.Progress;
-using Pet.Services.Input;
-using Pet.Services.Randomizer;
+using Pet.Service;
+using Pet.Service.Progress;
+using Pet.Service.Input;
+using Pet.Service.Randomizer;
 using Pet.StaticData;
 
 namespace Pet.Infrastructure
@@ -13,11 +13,11 @@ namespace Pet.Infrastructure
     {
         private readonly StateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
-        private readonly Services.Services _allServices;
+        private readonly Service.Services _allServices;
 
         private const string INITIAL = "Initial";
 
-        public BootstarpState(StateMachine gameStateMachine, SceneLoader sceneLoader, Services.Services allServices)
+        public BootstarpState(StateMachine gameStateMachine, SceneLoader sceneLoader, Service.Services allServices)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;

@@ -1,6 +1,6 @@
 ﻿using Pet.Data;
-using Pet.Services.Progress;
-using Pet.Services.Input;
+using Pet.Service.Progress;
+using Pet.Service.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,7 +41,7 @@ namespace Pet.Player
 
         private void Awake()
         {
-            _inputService = Services.Services.Container.Single<IInputService>();
+            _inputService = Service.Services.Container.Single<IInputService>();
 
             _characterController = GetComponent<CharacterController>();
         }

@@ -1,6 +1,6 @@
-﻿using Pet.Services;
+﻿using Pet.Service;
 
-namespace Pet.Services.Randomizer
+namespace Pet.Service.Randomizer
 {
     public interface IRandomService : IService
     {

@@ -20,7 +20,7 @@ namespace Assets.Pet.Editor
 
             if (GUILayout.Button("Collect"))
             {
-                levelData.EnemySpawners = FindObjectsOfType<SpawnMarker>()
+                levelData.EnemySpawners = FindObjectsOfType<SpawnPointer>()
                     .Select(x => new EnemySpawnerSettings(x.GetComponent<UniqueId>().Id, x.MonsterTypeId, x.transform.position))
                     .ToList();
 

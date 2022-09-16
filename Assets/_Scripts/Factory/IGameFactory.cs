@@ -1,6 +1,6 @@
 ﻿using Pet.Enemy;
-using Pet.Services;
-using Pet.Services.Progress;
+using Pet.Service;
+using Pet.Service.Progress;
 using Pet.StaticData;
 using System.Collections.Generic;
 using System.Threading.Tasks;

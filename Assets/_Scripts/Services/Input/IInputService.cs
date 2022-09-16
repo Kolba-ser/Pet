@@ -1,7 +1,7 @@
-using Pet.Services;
+using Pet.Service;
 using UnityEngine;
 
-namespace Pet.Services.Input
+namespace Pet.Service.Input
 {
     public interface IInputService : IService
     {

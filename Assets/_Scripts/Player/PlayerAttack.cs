@@ -1,7 +1,7 @@
 ﻿using Pet.Data;
 using Pet.Enemy;
-using Pet.Services.Progress;
-using Pet.Services.Input;
+using Pet.Service.Progress;
+using Pet.Service.Input;
 using UnityEngine;
 
 namespace Pet.Player

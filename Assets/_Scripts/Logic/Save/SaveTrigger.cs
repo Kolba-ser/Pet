@@ -13,7 +13,7 @@ namespace Pet.Logic
         private void Awake()
         {
             boxCollider = boxCollider ?? GetComponent<BoxCollider>();
-            _saveLoadService = Services.Services.Container.Single<ISaveLoadService>();
+            _saveLoadService = Service.Services.Container.Single<ISaveLoadService>();
         }
 
         private void OnTriggerEnter(Collider other)
