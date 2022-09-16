@@ -10,8 +10,6 @@ namespace Pet.Enemy
         [SerializeField] private EnemyAnimator enemyAnimator;
         [SerializeField] private AgentMover agentMoveToPlayer;
 
-        [SerializeField] private GameObject deathFx;
-
         public event Action OnDeath;
 
         private void Start() =>
@@ -33,13 +31,9 @@ namespace Pet.Enemy
             enemyHealth.OnHealthChange -= OnHealthChange;
             agentMoveToPlayer.enabled = false;
             enemyAnimator.PlayDeath();
-            SpawnDeathFx();
             StartCoroutine(DestroyTimer());
             OnDeath?.Invoke();
         }
-
-        private void SpawnDeathFx() =>
-            Instantiate(deathFx, transform.position, Quaternion.identity);
 
         private IEnumerator DestroyTimer()
         {
